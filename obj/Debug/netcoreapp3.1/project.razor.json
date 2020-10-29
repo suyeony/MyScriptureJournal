@@ -14407,13 +14407,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Scriptures\\Details.cshtml",
+      "TargetPath": "Pages\\Scriptures\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Scriptures\\Delete.cshtml",
+      "TargetPath": "Pages\\Scriptures\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Scriptures\\Index.cshtml",
+      "TargetPath": "Pages\\Scriptures\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14424,6 +14439,16 @@
     {
       "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Scriptures\\Create.cshtml",
+      "TargetPath": "Pages\\Scriptures\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Suyeon Yang\\Desktop\\MyScriptureJournal\\Pages\\Scriptures\\Edit.cshtml",
+      "TargetPath": "Pages\\Scriptures\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

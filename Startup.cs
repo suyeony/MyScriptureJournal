@@ -8,21 +8,34 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyScriptureJournal.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyScriptureJournal
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            Environment = env;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsDevelopment()) {
+                services.AddDbContext<MyScriptureJournalContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ScriptureContext")));
+            }
+            else {
+               
+                services.AddDbContext<MyScriptureJournalContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ScriptureContext")));
+            }
             services.AddRazorPages();
         }
 
