@@ -10,6 +10,8 @@ namespace MyScriptureJournal.Data
         {
         }
 
+        public DbSet<MyScriptureJournal.Models.Book> Book { get; set; }
         public DbSet<MyScriptureJournal.Models.Scripture> Scripture { get; set; }
+        
     }
 }

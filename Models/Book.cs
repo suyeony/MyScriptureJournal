@@ -5,11 +5,11 @@ namespace MyScriptureJournal.Models
 {
     public class Book
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
+        [Display(Name = "Book")]
+        public int BookId { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime ReleaseDate { get; set; }
+        [Display(Name = "Book Name")]
+        public string BookName { get; set; }
 
     }
 

@@ -28,7 +28,8 @@ namespace MyScriptureJournal.Pages.Scriptures
                 return NotFound();
             }
 
-            Scripture = await _context.Scripture.FirstOrDefaultAsync(m => m.ID == id);
+            Scripture = await _context.Scripture
+                .Include(s => s.book).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Scripture == null)
             {

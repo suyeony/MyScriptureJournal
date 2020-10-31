@@ -21,6 +21,7 @@ namespace MyScriptureJournal.Pages.Scriptures
 
         public IActionResult OnGet()
         {
+        ViewData["BookName"] = new SelectList(_context.Set<Book>(), "BookId", "BookName");
             return Page();
         }
 

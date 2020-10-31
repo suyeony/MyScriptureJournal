@@ -9,7 +9,7 @@ using MyScriptureJournal.Data;
 namespace MyScriptureJournal.Migrations
 {
     [DbContext(typeof(MyScriptureJournalContext))]
-    [Migration("20201029024954_InitialCreate")]
+    [Migration("20201031194813_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,17 +20,14 @@ namespace MyScriptureJournal.Migrations
 
             modelBuilder.Entity("MyScriptureJournal.Models.Book", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("BookId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("ReleaseDate")
+                    b.Property<string>("BookName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
+                    b.HasKey("BookId");
 
                     b.ToTable("Book");
                 });
@@ -39,6 +36,9 @@ namespace MyScriptureJournal.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Chapter")
@@ -50,12 +50,12 @@ namespace MyScriptureJournal.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("bookID")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Verses")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("bookID");
+                    b.HasIndex("BookId");
 
                     b.ToTable("Scripture");
                 });
@@ -64,7 +64,9 @@ namespace MyScriptureJournal.Migrations
                 {
                     b.HasOne("MyScriptureJournal.Models.Book", "book")
                         .WithMany()
-                        .HasForeignKey("bookID");
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

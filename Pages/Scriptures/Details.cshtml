@@ -18,6 +18,12 @@
             @Html.DisplayFor(model => model.Scripture.Chapter)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.Verses)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.Verses)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Scripture.Notes)
         </dt>
         <dd class="col-sm-10">
@@ -28,6 +34,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Scripture.CreateDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Scripture.book)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Scripture.book.BookName)
         </dd>
     </dl>
 </div>

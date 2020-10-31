@@ -28,14 +28,12 @@ namespace MyScriptureJournal
         public void ConfigureServices(IServiceCollection services)
         {
             if (Environment.IsDevelopment()) {
+                //services.AddDbContext<MyScriptureJournalContext>(options =>
+                //    options.UseSqlite(Configuration.GetConnectionString("BookContext")));
                 services.AddDbContext<MyScriptureJournalContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("ScriptureContext")));
-            }
-            else {
-               
-                services.AddDbContext<MyScriptureJournalContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ScriptureContext")));
-            }
+                
+            }           
             services.AddRazorPages();
         }
 

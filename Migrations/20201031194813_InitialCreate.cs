@@ -11,14 +11,13 @@ namespace MyScriptureJournal.Migrations
                 name: "Book",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    BookId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(nullable: true),
-                    ReleaseDate = table.Column<DateTime>(nullable: false)
+                    BookName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Book", x => x.ID);
+                    table.PrimaryKey("PK_Book", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
@@ -27,26 +26,27 @@ namespace MyScriptureJournal.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    BookId = table.Column<int>(nullable: false),
                     Chapter = table.Column<string>(nullable: true),
+                    Verses = table.Column<string>(nullable: true),
                     Notes = table.Column<string>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false),
-                    bookID = table.Column<int>(nullable: true)
+                    CreateDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Scripture", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Scripture_Book_bookID",
-                        column: x => x.bookID,
+                        name: "FK_Scripture_Book_BookId",
+                        column: x => x.BookId,
                         principalTable: "Book",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Scripture_bookID",
+                name: "IX_Scripture_BookId",
                 table: "Scripture",
-                column: "bookID");
+                column: "BookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
